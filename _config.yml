@@ -6,13 +6,13 @@
 title: dujun blog
 subtitle:
 description:
-author: dujun
+author: jiandandkl
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://jiandandkl.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -38,8 +38,8 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: true
+  enable: false
+  line_number: false
   auto_detect: false
   tab_replace:
 
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material
+theme: Material
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -71,3 +71,12 @@ deploy:
   type: git
   repo: https://github.com/jiandandkl/jiandandkl.github.io.git
   branch: master
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'okaidia'
+  line_number: false    # default false
+
+gitinfo:
+  avatar_url: avatar
+  html_url: github
