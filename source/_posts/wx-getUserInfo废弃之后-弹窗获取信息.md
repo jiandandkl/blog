@@ -6,7 +6,7 @@ github: https://github.com/jiandandkl
 avatar: https://avatars1.githubusercontent.com/u/16009933?s=40&v=4
 title: wx-getUserInfo废弃之后-弹窗获取信息
 date: 2018-06-06 20:12:17
-tags:
+tags: 小程序
 ---
 
   > 先吐槽下微信,这么基础的API晚上11点说废就废,程序猿何苦为难程序猿.(不过最近好像又恢复了...)
