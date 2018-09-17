@@ -3,7 +3,7 @@ uuid: adabc940-ba1b-11e8-a0d5-af09b9f2662e
 author: dujun
 email: emolingzhu@126.com
 github: https://github.com/dujun
-avatar: https://avatars1.githubusercontent.com/u/119213?v=4
+avatar: https://avatars1.githubusercontent.com/u/16009933?v=3
 title: redis中sscan的使用.md
 date: 2018-09-17 09:47:46
 tags: redis
