@@ -9,7 +9,6 @@ date: 2018-06-06 20:12:17
 tags:
 ---
 
-
   > 先吐槽下微信,这么基础的API晚上11点说废就废,程序猿何苦为难程序猿.(不过最近好像又恢复了...)
 
   官方是推荐使用button点击获取用户信息,但有时候页面多这么一个按钮很突兀啊、或者tabbar切换的时候想要先获取用户信息再展示页面就很尴尬了。
@@ -50,3 +49,63 @@ tags:
     duration: 3000
   })
   ```
+
+  效果图:
+
+  ![](/img/dujun/loading.gif)
+
+  > 推荐个loading图网站 [https://loading.io](https://loading.io/)
+
+  * 登录模态框
+
+  有自定义模态框在实现登录就比较简单了,在wxml绑定两个按钮就可以了
+  
+  ```javascript
+  <text wx:if="{{showToast.title}}" class="toast-title">{{showToast.title}}</text>
+  <view wx:if="{{showToast.btnCancel && showToast.btnUserInfo}}">
+    <text class='toast-text'>请先登录~</text>
+    <button class='toast-btn' catchtap='click_cancel'>{{showToast.btnCancel}}</button>
+    <button class='toast-btn toast-btn2' open-type="getUserInfo" bindgetuserinfo="click_user_info">{{showToast.btnUserInfo}}</button>
+  </view>
+  ```
+
+  my.js:
+  ```javascript
+  feedbackApi.showToast({
+    title: '尚未登录',
+    btnCancel: '知道了',
+    btnUserInfo: '登录',
+    bg: '#fff',
+    duration: 10000
+  }),
+  // 点击取消
+  click_cancel(e) {
+    feedbackApi.hideToast()
+    wx.switchTab({
+      url: '../index/index'
+    });
+  },
+  // 点击登录
+  click_user_info(e) {
+    const data = e.detail
+    if (data.userInfo) {
+      this.setData({
+        userInfo: data.userInfo
+      })
+      wx.setStorageSync('userInfo', data.userInfo)
+      feedbackApi.hideToast()
+    } else {
+      wx.switchTab({
+        url: '../index/index'
+      })
+    }
+  }
+  ```
+
+  效果图:
+  
+  ![](/img/dujun/login.gif)
+
+  详细代码可见 [https://github.com/jiandandkl/toast-demo](https://github.com/jiandandkl/toast-demo)
+
+  
