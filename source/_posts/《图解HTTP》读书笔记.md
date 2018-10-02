@@ -8,8 +8,8 @@ title: 《图解HTTP》读书笔记
 date: 2018-09-30 10:26:33
 tags: http
 ---
-> 书读了一遍发现没记住什么,团队过面试题时聊到401和403的区别,只是模糊有点印象但说不上来,就考虑做个读书笔记吧,加深下印象
-> 《今晚我们一起学习http》原书名相比《图解HTTP》更有日本特色
+> 书读了一遍发现没记住什么,团队过面试题时聊到401和403的区别,只是模糊有点印象但说不上来,就考虑做个读书笔记吧,加深下印象。
+> 《今晚我们一起学习http》原书名相比《图解HTTP》更有日本特色。
 
 ### 一、tcp/ip协议
 分为应用层 / 传输层 / 网络层 / 链路层。
@@ -102,7 +102,7 @@ HTTP 在传输数据时可以按照数据原貌直接传输,但也可以在传�
 | 403 | Forbidden | 对请求资源的访问被服务器拒绝了 | 未获得文件系统的访问授权,访问权限出现某些问题(从未授权的 发送源 IP 地址试图访问) |
 | 404 | Not Found | 服务器上无法找到请求的资源或服务器端拒绝请求且不想说明理由时 |  |
 | 500 | Internal Server Error | 服务器端在执行请求时发生了错误 |  |
-| 503 | Service Unavailable | 服务器暂时处于超负载或正在进行停机维护,无法处理请求 |  |
+| 503 | Service Unavailable | 服务器暂时处于超负载或正在进行停机维护,无法处理请求 |    |
 
 ### 五、与HTTP协作的web服务器
 
@@ -132,77 +132,9 @@ HTTP 在传输数据时可以按照数据原貌直接传输,但也可以在传�
 ##### HTTP首部字段
 分为以下4种类型(常用举例):
 
-<table>
-<tr>
-    <td>类型</td>
-    <td>首部字段名</td>
-    <td>说明</td>
-</tr>
-<tr>
-    <td rowspan="3">通用首部字段</td>
-    <td>Cache-Control</td>
-    <td>控制缓存的行为</td>
-</tr>
-<tr>
-    <td>Connection</td>
-    <td>逐跳首部、连接的管理</td>
-</tr>
-<tr>
-    <td>Pragma</td>
-    <td>报文指令</td>
-</tr>
-<tr>
-    <td rowspan="6">请求首部字段</td>
-    <td>Accept</td>
-    <td>用户代理可处理的媒体类型</td>
-</tr>
-<tr>
-    <td>Accept-Charset</td>
-    <td>优先的字符集</td>
-</tr>
-<tr>
-    <td>Accept-Encoding</td>
-    <td>优先的内容编码</td>
-</tr>
-<tr>
-    <td>Authorization</td>
-    <td>Web认证信息</td>
-</tr>
-<tr>
-    <td>Authorization</td>
-    <td>Web认证信息</td>
-</tr>
-<tr>
-    <td>Referer</td>
-    <td>对请求中URI的原始获取方</td>
-</tr>
-<tr>
-    <td rowspan="3">响应首部字段</td>
-    <td>Accept-Ranges</td>
-    <td>是否接受字节范围请求</td>
-</tr>
-<tr>
-    <td>Location</td>
-    <td>令客户端重定向至指定URI</td>
-</tr>
-<tr>
-    <td>Age</td>
-    <td>推算资源创建经过时间</td>
-</tr>
-<tr>
-    <td rowspan="3">实体首部字段</td>
-    <td>Allow</td>
-    <td>资源可支持的 HTTP 方法</td>
-</tr>
-<tr>
-    <td>Content-Encoding</td>
-    <td>实体主体适用的编码方式</td>
-</tr>
-<tr>
-    <td>Content-Length</td>
-    <td>实体主体的大小(单位:字节)</td>
-</tr>
-</table>
+[//]: # (如果换行在浏览器会显示大段空白)
+
+<table><tr><td>类型</td><td>首部字段名</td><td>说明</td></tr><tr><td rowspan="3">通用首部字段</td><td>Cache-Control</td><td>控制缓存的行为</td></tr><tr><td>Connection</td><td>逐跳首部、连接的管理</td></tr><tr><td>Pragma</td><td>报文指令</td></tr><tr><td rowspan="6">请求首部字段</td><td>Accept</td><td>用户代理可处理的媒体类型</td></tr><tr><td>Accept-Charset</td><td>优先的字符集</td></tr><tr><td>Accept-Encoding</td><td>优先的内容编码</td></tr><tr><td>Authorization</td><td>Web认证信息</td></tr><tr><td>Authorization</td><td>Web认证信息</td></tr><tr><td>Referer</td><td>对请求中URI的原始获取方</td></tr><tr><td rowspan="3">响应首部字段</td><td>Accept-Ranges</td><td>是否接受字节范围请求</td></tr><tr><td>Location</td><td>令客户端重定向至指定URI</td></tr><tr><td>Age</td><td>推算资源创建经过时间</td></tr><tr><td rowspan="3">实体首部字段</td><td>Allow</td><td>资源可支持的 HTTP 方法</td></tr><tr><td>Content-Encoding</td><td>实体主体适用的编码方式</td></tr><tr><td>Content-Length</td><td>实体主体的大小(单位:字节)</td></tr></table>
 
 ##### HTTP/1.1 通用首部字段
 
@@ -408,6 +340,69 @@ HTTPS并非新协议,只是HTTP通信接口部分用SSL和TLS协议代替了。
 + 基于表单认证
   
 ### 九、基于HTTP的功能追加协议
++ HTTP存在的问题
+ + 一条连接上只可发送一个请求
+ + 请求只能从客户端开始
+ + 请求/响应首部未经压缩就发送,首部嘻嘻越多延迟越大
+ + 每次互相发送相同的/冗长的首部造成浪费
+ + 可任意选择数据压缩格式,非强制压缩
 
++ Ajax的解决方法
+ 只更新一部分页面,响应中传输的数据量也因此减少。但有可能导致大量请求产生。
+ 
++ Comet的解决方法
+ 一旦服务器有内容更新了,Comet会直接给客户端返回响应。但为了保留响应,一次连接的持续时间也变长了,为了维持连接也会消耗更多的资源。
+ 
++ SPDY的解决方法(已被HTTP/2替代)
+  SPDY以会话层的形式加入,控制对数据的流动,但还是采用HTTP建立通信连接。
+  使用SPDY后,HTTP协议额外获得以下功能:
+  + 多路复用流:
+    通过单一的TCP连接,可以无限制处理多个HTTP请求。所有请求的处理都在一条TCP连接上,因此TCP的处理效率得到提高。
+  + 赋予请求优先级
+  + 压缩HTTP首部
+  + 推送功能
+  + 服务器提示功能
 
+##### 全双工通信的WebSocket
+主要是解决Ajax和Comet里XMLHTTPRequest附带的缺陷所引起的问题;
+建立在HTTP基础上的协议,连接的发起方仍是客户端,而一旦确立WebSocket通信连接,不论服务器还是客户端,任意一方都可以直接向对方发送报文。
+
++ 推送功能
+  支持由服务器向客户端推送数据的推送功能
+  
++ 减少通信量
+  只要建立起WebSocket连接,就希望一直保持连接状态,而且Websocket首部信息很小,通信量也减少了
+  
+> 为了实现WebSocket通信,在HTTP连接建立后需要完成一次握手的步骤
+
++ 握手请求
+  设置Upgrade为webSocket,Sec-WebSocket-Key字段内记录着握手过程中必不可少的键值,Sec-WebSocket-Protocol 字段内记录使用的子协议
+  
++ 握手响应
+  返回状态码 101 Switching Protocols
+  
+成功握手确立 WebSocket连接之后,通信时不再使用 HTTP 的数据帧,而 采用 WebSocket 独立的数据帧
+
++ WebSocket API
+  每 50ms 发送一次数据的实例:
+  ```javascript
+   var socket = new WebSocket('ws://game.example.com:12010/updates'); socket.onopen = function () {
+    setInterval(function() {
+      if (socket.bufferedAmount == 0)
+        socket.send(getUpdateData());
+    }, 50);
+};
+  ```
+  
++ HTTP/2.0
+  目标是改善用户在使用Web时的速度体验,基于SPDY
+  
+  + 帧、消息、流和TCP连接
+    将一个TCP连接分为若干个流（Stream），每个流中可以传输若干消息（Message），每个消息由若干最小的二进制帧（Frame）组成
+  + HPACK 算法
+    用于对HTTP头部做压缩
+  + 服务器推送
+    服务端向客户端发送比客户端请求更多的数据。这允许服务器直接提供浏览器渲染页面所需资源，而无须浏览器在收到、解析页面后再提起一轮请求，节约了加载时间
+
+    
 
