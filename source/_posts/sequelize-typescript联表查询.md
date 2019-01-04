@@ -31,7 +31,6 @@ tags:
 
 // 传入teamName作为源模型的外联key,默认目标模型对应的外联key为目标模型的主键
 @BelongsTo(() => Team, 'teamName')
-```sTo(() => Team, 'teamName')
 ```
 
 ##### @HasOne / @hasMany / @BelongsToMany
