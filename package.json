@@ -7,6 +7,7 @@
     "version": "3.8.0"
   },
   "dependencies": {
+    "braces": "^2.3.2",
     "fs": "0.0.1-security",
     "hexo": "^3.9.0",
     "hexo-author": "^1.1.0",
@@ -16,7 +17,7 @@
     "hexo-generator-index": "^0.2.0",
     "hexo-generator-tag": "^0.2.0",
     "hexo-helper-qrcode": "^1.0.2",
-    "hexo-prism-plugin": "^2.2.0",
+    "hexo-prism-plugin": "^2.3.0",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-marked": "^1.0.1",
     "hexo-renderer-stylus": "^0.3.1",
