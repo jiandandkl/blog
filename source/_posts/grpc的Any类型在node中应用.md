@@ -66,7 +66,7 @@ package hello;
 
 import "google/protobuf/any.proto";
 
-// 日志类型
+// 类型
 enum Type {
     UNKNOWN_TYPE = 0;
 
