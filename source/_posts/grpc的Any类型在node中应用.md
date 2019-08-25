@@ -45,9 +45,9 @@ const client = createClient({
 client.Report({
   // proto中定义的各字段
   type: 'HTTP',
-  project: 'XXX',
-  user_ip: '1111',
-  takes: 123,
+  name: 'XXX',
+  country: 'xxx',
+  age: 20,
 }, err => {
   if (err) {
     console.log(err)
@@ -60,7 +60,7 @@ client.Report({
 > `@grpc/proto-loader`已不支持,需要先将proto文件编译,使用的是[grpc\_tools\_node\_protoc\_ts](https://www.npmjs.com/package/grpc_tools_node_protoc_ts) (也能编译d.ts文件)
 
 hello.proto
-```
+```bash
 syntax = "proto3";
 package hello;
 
