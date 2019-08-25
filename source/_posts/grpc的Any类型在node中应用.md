@@ -59,6 +59,58 @@ client.Report({
 
 > `@grpc/proto-loader`已不支持,需要先将proto文件编译,使用的是[grpc\_tools\_node\_protoc\_ts](https://www.npmjs.com/package/grpc_tools_node_protoc_ts) (也能编译d.ts文件)
 
+hello.proto
+```
+syntax = "proto3";
+package hello;
+
+import "google/protobuf/any.proto";
+
+// 日志类型
+enum Type {
+    UNKNOWN_TYPE = 0;
+
+    HTTP = 1;
+
+    TCP = 2;
+}
+
+// 单条消息体定义
+message Request {
+
+    Type type = 1;
+
+    string name = 2;
+
+    string country = 3;
+
+    int32 age = 4;
+
+    google.protobuf.Any extra = 5;
+}
+
+message HttpProto { 
+
+    string header = 1;
+
+    string url = 2;
+
+    int32 code = 3;
+
+}
+
+// 响应消息体
+message Response {
+    int32 code = 1;
+}
+
+service ReportService {
+    // 非流式gRPC请求
+    rpc Report (Request) returns (Response) {
+    }
+}
+```
+
 ```javascript
 const grpc = require('grpc')
 const googleProtobufAnyPb = require('google-protobuf/google/protobuf/any_pb.js')
