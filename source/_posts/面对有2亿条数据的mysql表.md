@@ -6,7 +6,7 @@ github: https://github.com/jiandandkl
 avatar: https://avatars1.githubusercontent.com/u/16009933?s=40&v=4
 title: 面对有2亿条数据的mysql表
 date: 2018-06-06 20:10:57
-tags:
+tags: mysql
 ---
 
 
