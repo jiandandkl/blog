@@ -13,7 +13,7 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://jiandandkl.github.io
-root: /jiandandkl.github.io
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -73,9 +73,9 @@ deploy:
   branch: master
 
 prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'okaidia'
-  line_number: false    # default false
+  mode: "preprocess" # realtime/preprocess
+  theme: "okaidia"
+  line_number: false # default false
 
 gitinfo:
   avatar_url: avatar
