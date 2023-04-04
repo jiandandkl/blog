@@ -6,7 +6,7 @@ github: https://github.com/jiandandkl
 avatar: https://avatars.githubusercontent.com/u/16009933?v=4
 title: next/image 使用是收费的??
 date: 2023-02-27 11:15:05
-tags:
+tags: nextjs image
 ---
 
 > 起因: 新项目上线一段时间后,发现在 Vercel Usage 里的 Image Optimization 增长迅速,很快就超过了 5000 的免费额度,产生了额外的费用,对小团队来说还是能省则省吧。
