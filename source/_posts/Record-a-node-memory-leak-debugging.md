@@ -31,16 +31,17 @@ setInterval(collectMemory, 60000)
 
 Put above code into `main.js` or `index.js`, after 1 minute you can see new file appear in your project. If in 1 minute memory don't change very big, you can adjust the number of the time bigger.
 
-### Analyze
+### Analyze Data
 
 1. import to devtool
 
 Open `chrome://inspect`, click this
 
-![opendevtool](/img/dujun/opendevtool.png)
+![open devtool](/img/dujun/opendevtool.png)
 
-On this window, click `Memory`, click load, import snapshot file order by time
-// todo empty devtool image
+On this window, click `Memory`, click load or right click empty area on the left, import snapshot file order by time
+
+![empty devtool](/img/dujun/emptydevtool.png)
 
 2. look for clues
 
@@ -52,8 +53,6 @@ Choose a snapshot, then choose a earlier snapshot to compare
 
 We can see the data change from the `Size Delta` column. I didn't find any useful information from the system or array, then I open the string item, there are lots of requested information look like log.
 
-> tips: The Delta column shows the size change between the server and the cache in browser, and the Size Delta column shows the size change between loads.
-
 ![logger](/img/dujun/logger.png)
 
 choosing any record, and details show on the below. A function named `logger` catched my attention, then I guess one of log functions cause this.
@@ -62,7 +61,10 @@ choosing any record, and details show on the below. A function named `logger` ca
 
 Return to project, there are three possible log functions, first is a custom function replaced default `console.log`, second is a third module named `yog-log`, last is `logger` from `nestjs`.
 
-Firstly, I annotated the custom log functoin, but I found it's not the reason cause memory leaking after testing. Then I exclude the logger of `nestjs` lightly, because `nestjs` is very popular in many projects so that it would expose long ago if it had memory leaking. So there is only one possibility - `yog-log`. When I went to github to find more information about it, I found a [issue](https://github.com/fex-team/yog-log/issues/12) about memory leaking. According to this issue, I search more information about `domain` on [nodejs website](https://nodejs.org/docs/latest/api/domain.html) which shows `domain` is pending deprecation. I also found some articles refer to `domain` may cause memory leaking.
+Firstly, I annotated the custom log functoin, but I found it's not the reason cause memory leaking after testing.
+Then I exclude the logger of `nestjs` lightly, because `nestjs` is very popular in many projects so that it would expose long ago if it had memory leaking.
+So there is only one possibility - `yog-log`. When I went to github to find more information about it, I found a [issue](https://github.com/fex-team/yog-log/issues/12) about memory leaking. According to this issue, I search more information about `domain` on [nodejs website](https://nodejs.org/docs/latest/api/domain.html) which shows `domain` is pending deprecation. I also found some articles refer to `domain` may cause memory leaking.
+Then I return to `yog-log`, and it indeed used `domain` in `index.js` and it has a function called `logger` which we saw in snapshot.
 
 ![normal memory](/img/dujun/normalMemory.png)
 
