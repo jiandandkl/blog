@@ -69,12 +69,13 @@ theme: Material
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/jiandandkl/jiandandkl.github.io.git
+  # repo: https://github.com/jiandandkl/jiandandkl.github.io.git
+  repo: git@github.com:jiandandkl.github.io.git
   branch: master
 
 prism_plugin:
-  mode: "preprocess" # realtime/preprocess
-  theme: "okaidia"
+  mode: 'preprocess' # realtime/preprocess
+  theme: 'okaidia'
   line_number: false # default false
 
 gitinfo:
