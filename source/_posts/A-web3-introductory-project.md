@@ -1,9 +1,9 @@
 ---
 uuid: c4246980-61de-11f0-bd10-237001c20106
-author: dujun
+author: jiandandkl
 email: emolingzhu@126.com
-github: https://github.com/dujun
-avatar: https://avatars.githubusercontent.com/u/119213?v=4
+github: https://github.com/jiandandkl
+avatar: https://avatars.githubusercontent.com/u/16009933?v=4
 title: A web3 introductory project
 date: 2025-07-15 18:49:43
 tags:
